@@ -1,15 +1,10 @@
-## Ignore Atmel Studio temporary files and build results
-# https://www.microchip.com/mplab/avr-support/atmel-studio-7
+.pio/
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch/
+compile_commands.json
 
-# Atmel Studio is powered by an older version of Visual Studio,
-# so most of the project and solution files are the same as VS files,
-# only prefixed by an `at`.
-
-#Build Directories
-[Dd]ebug/
-[Rr]elease/
-
-#Build Results
+# PlatformIO and compiler output
 *.o
 *.d
 *.eep
@@ -18,5 +13,10 @@
 *.map
 *.srec
 
-#User Specific Files
+# MPLAB/Atmel Studio output
+[Dd]ebug/
+[Rr]elease/
 *.atsuo
+
+# Local copy of the assignment handout
+Lab 2 - Morse - ESE5190 - F26.md
