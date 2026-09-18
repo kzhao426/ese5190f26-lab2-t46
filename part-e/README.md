@@ -10,12 +10,15 @@
 ## Timing
 
 - Dot: button held for 50 ms to less than 200 ms
-- Dash: button held for 200 ms to 400 ms
+- Dash: button held for 200 ms to 800 ms
 - Character gap: button released for at least 400 ms
 - Dot or dash LED: on for about 50 ms after release
 
 The decoded A-Z or 0-9 characters are printed continuously in the serial
 terminal. An invalid or overlong sequence prints `?`.
+
+The dash upper limit was increased from 400 ms to 800 ms to make manual input
+easier. This custom interval should be mentioned in the lab submission.
 
 ## T1 demo checklist
 
