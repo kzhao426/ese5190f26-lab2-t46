@@ -43,7 +43,7 @@ pio device monitor
 
 也可以使用 PlatformIO 串口监视器；当前预设为 **9600、8N1**。若使用它，建议同步把 UART 代码的停止位设为 1。使用 `pio device list` 查看 mEDBG 虚拟串口；若有多个串口，在 `platformio.ini` 中设置实际的 `monitor_port = COM数字`。退出 PlatformIO 串口监视器使用 **Ctrl+C**。
 
-课程 UART 源码目前使用 `__init_stdout` / `__init_stdin`。这些接口需要适配到 AVR-GCC / avr-libc 的流接口（例如 `fdev_setup_stream`），不能假设从 MPLAB 工程直接复制后就能编译；本工程尚未加入该库。
+`src/uart.c` 已使用 AVR-GCC / avr-libc 的 `FDEV_SETUP_STREAM` 适配课程 UART 库，参与当前工程编译。
 
 ## 参考
 

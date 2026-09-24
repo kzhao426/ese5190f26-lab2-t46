@@ -3,6 +3,7 @@
 #include <avr/io.h>
 #include <stdio.h>
 #include <util/atomic.h>
+#include <util/delay.h>
 
 #include "uart.h"
 
@@ -12,7 +13,6 @@
 #define TICKS_FOR_MS(ms) \
     ((uint16_t)(((F_CPU / TIMER_PRESCALER) * (ms)) / 1000UL))
 
-#define DEBOUNCE_TICKS TICKS_FOR_MS(10)
 #define DOT_MIN_TICKS  TICKS_FOR_MS(50)
 #define DASH_MIN_TICKS TICKS_FOR_MS(200)
 #define DASH_MAX_TICKS TICKS_FOR_MS(400)
@@ -23,45 +23,48 @@
 #define EVENT_SPACE _BV(2)
 
 static volatile uint8_t button_down;
+static volatile uint8_t overflowed;
 static volatile uint8_t events;
+
+ISR(TIMER1_OVF_vect)
+{
+    overflowed = 1;
+}
 
 ISR(TIMER1_CAPT_vect)
 {
-    uint16_t elapsed = ICR1;
+    /* Confirm the new level after switch bounce settles. */
+    _delay_ms(10);
+    uint8_t down = (PINB & _BV(BUTTON_PIN)) != 0;
+    if (down == button_down) {
+        TIFR1 = _BV(ICF1);
+        return;
+    }
+
+    uint16_t elapsed = TCNT1;
+    uint8_t too_long = overflowed || (TIFR1 & _BV(TOV1));
 
     if (button_down) {
-        /* Ignore very short falling edges caused by button bounce. */
-        if (elapsed < DOT_MIN_TICKS) {
-            TIFR1 = _BV(ICF1);
-            return;
+        if (!too_long && elapsed >= DOT_MIN_TICKS && elapsed <= DASH_MAX_TICKS) {
+            events |= elapsed < DASH_MIN_TICKS ? EVENT_DOT : EVENT_DASH;
         }
 
-        if (elapsed < DASH_MIN_TICKS) {
-            events |= EVENT_DOT;
-        } else if (elapsed <= DASH_MAX_TICKS) {
-            events |= EVENT_DASH;
-        }
-
-        button_down = 0;
-        TCNT1 = 0;
-        OCR1A = SPACE_TICKS;
-        TIFR1 = _BV(OCF1A);
         TIMSK1 |= _BV(OCIE1A);
         TCCR1B |= _BV(ICES1); /* Capture a rising edge next. */
     } else {
-        /* Ignore very short rising edges caused by button bounce. */
-        if (elapsed < DEBOUNCE_TICKS) {
-            TIFR1 = _BV(ICF1);
-            return;
+        /* Preserve a space whose compare interrupt is still pending. */
+        if ((TIMSK1 & _BV(OCIE1A)) && (too_long || elapsed >= SPACE_TICKS)) {
+            events |= EVENT_SPACE;
         }
 
         TIMSK1 &= (uint8_t)~_BV(OCIE1A);
-        button_down = 1;
-        TCNT1 = 0;
         TCCR1B &= (uint8_t)~_BV(ICES1); /* Capture a falling edge next. */
     }
 
-    TIFR1 = _BV(ICF1);
+    button_down = down;
+    TCNT1 = 0;
+    overflowed = 0;
+    TIFR1 = _BV(ICF1) | _BV(OCF1A) | _BV(TOV1);
 }
 
 ISR(TIMER1_COMPA_vect)
@@ -75,7 +78,7 @@ ISR(TIMER1_COMPA_vect)
     TIFR1 = _BV(OCF1A);
 }
 
-int main(void)
+static void part_c(void)
 {
     cli();
 
@@ -91,6 +94,7 @@ int main(void)
     OCR1A = SPACE_TICKS;
 
     button_down = (PINB & _BV(BUTTON_PIN)) != 0;
+    overflowed = 0;
     events = 0;
 
     /* Use Timer1 with a 1/1024 prescaler. */
@@ -99,11 +103,9 @@ int main(void)
         TCCR1B |= _BV(ICES1); /* Start by waiting for a button press. */
     }
 
-    TIFR1 = _BV(ICF1) | _BV(OCF1A);
-    TIMSK1 = _BV(ICIE1);
+    TIFR1 = _BV(ICF1) | _BV(OCF1A) | _BV(TOV1);
+    TIMSK1 = _BV(ICIE1) | _BV(TOIE1);
     sei();
-
-    printf("Part C ready\r\n");
 
     while (1) {
         uint8_t pending;
@@ -123,4 +125,9 @@ int main(void)
             printf("SPACE\r\n");
         }
     }
+}
+
+int main(void)
+{
+    part_c();
 }
