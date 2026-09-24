@@ -54,8 +54,8 @@ A prescaler divides the microcontroller clock before it reaches the timer, so th
 ## Part D
 
 ### (I1)
+<img width="361" height="491" alt="image" src="https://github.com/user-attachments/assets/914a1cb9-7f8e-4ba3-ae02-0d4f26f4f628" />
 
-![Debounce Circuit Setup](images/i1_circuit%20setup.HEIC)
 
 ### (I2)
 
