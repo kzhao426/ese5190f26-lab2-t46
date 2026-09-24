@@ -49,7 +49,7 @@ Correction: the condition should be `if (PINB & (1 << BUTTON_PIN))` to read PB0 
 
 ### (R2)
 
-A prescaler divides the microcontroller clock before it reaches the timer, so the timer counts more slowly and measures longer intervals before overflowing. The tradeoff is lower timing resolution; with a 1/1024 prescaler at 16 MHz, each tick is 64 us and Timer1 overflows after about 4.19 s instead of 4.10 ms.
+A prescaler divides the microcontroller clock before it's used for timers, so the timers count more slowly and takes longer before overflowing. With the different prescaler values that can be selected for the microcontroller, we can better tune the time until overflow for the situation.
 
 ## Part D
 
@@ -69,7 +69,7 @@ A prescaler divides the microcontroller clock before it reaches the timer, so th
 
 ### (R3)
 
-The 10 nF capacitor is better for debouncing. With the same resistance, its RC time constant is ten times larger than with 1 nF, so it smooths fast voltage changes more effectively but responds more slowly.
+The 10 nF capacitor is better for debouncing. With the same resistance, it can store and release more power, so it smooths fast voltage changes more effectively but responds more slowly.
 
 ## Part E
 
