@@ -9,11 +9,16 @@
 | Liyan Luo        | ll0@engineering.upenn.edu      | liyanluo-penn |
 | Kevin Zhao       | kzhao426@engineering.upenn.edu | kzhao426      |
 
-
 ## Questions
 
 (S1)
-![s1](images/lab2s1.png)
+![Loop Blink Code](images/lab2s1.png)
 
 (S2)
-![s2](images/lab2s2.png)
+![Button LED Code](images/lab2s2.png)
+
+(S3)
+![LED Cycle Code](images/lab2s3.png)
+
+(S4)
+![Circuit Schematic](images/lab2s4.png)
