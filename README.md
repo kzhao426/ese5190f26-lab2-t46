@@ -85,6 +85,4 @@ The dash upper limit was increased from 400 ms to 800 ms to make manual input ea
 
 Message: `penn ESE 5190 fall 2026` (13 unique characters).
 
-### (T2)
 
-Pending: TA demo.
