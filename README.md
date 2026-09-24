@@ -9,16 +9,33 @@
 | Liyan Luo        | ll0@engineering.upenn.edu      | liyanluo-penn |
 | Kevin Zhao       | kzhao426@engineering.upenn.edu | kzhao426      |
 
-## Questions
+# Questions
 
-(S1)
+## Part A
+
+### (S1)
+
 ![Loop Blink Code](images/lab2s1.png)
 
-(S2)
+### (S2)
+
 ![Button LED Code](images/lab2s2.png)
 
-(S3)
+### (S3)
+
 ![LED Cycle Code](images/lab2s3.png)
 
-(S4)
+### (S4)
+
 ![Circuit Schematic](images/lab2s4.png)
+
+
+## Part C
+
+### (R1)
+
+| Time (ms) | Ticks     |
+| --------- | --------- |
+| 50        | 800,000   |
+| 200       | 3,200,000 |
+| 400       | 6,400,000 |
