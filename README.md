@@ -51,8 +51,6 @@ Correction: the condition should be `if (PINB & (1 << BUTTON_PIN))` to read PB0 
 
 A prescaler divides the microcontroller clock before it reaches the timer, so the timer counts more slowly and measures longer intervals before overflowing. The tradeoff is lower timing resolution; with a 1/1024 prescaler at 16 MHz, each tick is 64 us and Timer1 overflows after about 4.19 s instead of 4.10 ms.
 
-Code: [part-c/lab2_part_c.c](part-c/lab2_part_c.c). A 50 ms to less than 200 ms press prints `DOT`, a 200–400 ms press prints `DASH`, and a release of at least 400 ms prints `SPACE`.
-
 ## Part D
 
 ### (I1)
