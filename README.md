@@ -73,12 +73,7 @@ The 10 nF capacitor is better for debouncing. With the same resistance, its RC t
 
 ### (C2)
 
-[lab2c2.c](lab2c2.c) decodes A–Z and 0–9 and prints the characters over UART. Invalid sequences print `?`. The same code is in [src/main.c](src/main.c) for PlatformIO.
-
-- Button: PB0/ICP1 with a 10 kOhm external pull-down resistor.
-- LEDs: two different colors, PB1 for dots and PB2 for dashes, each with a current-limiting resistor to GND.
-- Serial: 9600 baud, 8 data bits, no parity, 2 stop bits (8N2).
-- Timing: dot = 50 ms to less than 200 ms; dash = 200–800 ms; character gap = at least 400 ms. Each LED lights for about 50 ms after release.
+[lab2c2.c](lab2c2.c)
 
 The dash upper limit was increased from 400 ms to 800 ms to make manual input easier.
 
