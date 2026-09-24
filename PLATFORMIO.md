@@ -1,15 +1,15 @@
 # ESE5190 Lab 2 开发环境
 
-使用 **VS Code + PlatformIO + AVR-GCC**，目标板为 **ATmega328PB Xplained Mini**。代码使用寄存器级 C，未启用 Arduino 框架。当前 `src/main.c` 是 Part E 的可编译版本；提交文件保存在仓库根目录的 `lab2c2.c`。
+使用 **VS Code + PlatformIO + AVR-GCC**，目标板为 **ATmega328PB Xplained Mini**。代码使用寄存器级 C，未启用 Arduino 框架。当前 `src/main.c` 是 Part F 的可编译版本；Part E 和 Part F 的提交文件分别是 `lab2c2.c` 和 `lab2c3.c`。
 
-Part F 使用 `lab2c3.c`，PB1 接 LED 和限流电阻到 GND。运行 `pio run -e part_f` 编译，`pio run -e part_f -t upload` 烧录；默认环境仍是 Part E。
+Part F 使用 `lab2c3.c`，PB1 接 LED 和限流电阻到 GND。默认环境现在运行 Part F，也可运行 `pio run -e part_f` 编译、`pio run -e part_f -t upload` 烧录。
 
 ## 在 VS Code 中使用
 
 1. 用 **File → Open Folder** 打开本目录，确保资源管理器中能看到 `platformio.ini`。
 2. 等待 PlatformIO 初始化。侧栏打开 PlatformIO，展开 **PROJECT TASKS → xplained328pb → General**。
 3. 点击 **Build** 编译。编译不需要连接开发板，成功后生成 `.pio/build/xplained328pb/firmware.hex`。
-4. 用可传输数据的 USB 线连接开发板，点击 **Upload**。Part E 烧录后，打开 9600 baud 串口监视器查看解码后的字符。
+4. 用可传输数据的 USB 线连接开发板，点击 **Upload**。Part F 烧录后，PB1 LED 会循环发送代码中的消息。
 5. 后续将实验代码写入 `src/main.c`，其他参与编译的 `.c` 文件放入 `src/`。一个工程只保留一个 `main()`；各阶段备份放在 `src/` 外。
 
 若打开目录后没有出现工程任务，运行命令面板 **Developer: Reload Window**。若 AVR 头文件有红线，运行 **PlatformIO: Rebuild IntelliSense Index**。

@@ -83,7 +83,7 @@ The dash upper limit was increased from 400 ms to 800 ms to make manual input ea
 
 [lab2c3.c](lab2c3.c)
 
-Message: `HELLO WORLD 12345` (12 unique characters).
+Message: `penn ESE 5190 fall 2026` (13 unique characters).
 
 ### (T2)
 

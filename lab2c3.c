@@ -9,7 +9,7 @@
 #define LED_PIN PB1
 #define UNIT_MS 100
 
-static const char message[] = "HELLO WORLD 12345";
+static const char message[] = "penn ESE 5190 fall 2026";
 
 static const char *const morse[] = {
     /* A-Z */
@@ -30,6 +30,9 @@ static void wait_units(uint8_t units)
 
 static void send_character(char c)
 {
+    if (c >= 'a' && c <= 'z') {
+        c = (char)(c - 'a' + 'A');
+    }
     const char *code;
     if (c >= 'A' && c <= 'Z') {
         code = morse[c - 'A'];
