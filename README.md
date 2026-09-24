@@ -31,7 +31,8 @@ Correction: the condition should be `if (PINB & (1 << BUTTON_PIN))` to read PB0 
 
 ### (S4)
 
-![Circuit Schematic](images/lab2s4.png)
+<img width="670" height="386" alt="image" src="https://github.com/user-attachments/assets/b4e9d803-7ed3-4f4b-87db-fd85dfdcd999" />
+
 
 ## Part B
 
