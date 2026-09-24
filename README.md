@@ -20,7 +20,8 @@
 
 ### (S2)
 
-![Button LED Code](images/lab2s2.png)
+<img width="494" height="500" alt="image" src="https://github.com/user-attachments/assets/0212a6c6-1213-4346-bc54-d24466f30f54" />
+
 
 Correction: the condition should be `if (PINB & (1 << BUTTON_PIN))` to read PB0 without writing to PINB.
 
