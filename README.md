@@ -15,3 +15,5 @@
 (S1)
 ![s1](images/lab2s1.png)
 
+(S2)
+![s2](images/lab2s2.png)
