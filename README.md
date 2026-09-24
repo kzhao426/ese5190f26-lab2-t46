@@ -27,7 +27,7 @@ Correction: the condition should be `if (PINB & (1 << BUTTON_PIN))` to read PB0 
 
 ### (S3)
 
-![LED Cycle Code](images/lab2s3.png)
+<img width="401" height="623" alt="image" src="https://github.com/user-attachments/assets/7be75652-4f2b-43c5-bcb3-d9d4e0eb8978" />
 
 ### (S4)
 
