@@ -15,7 +15,8 @@
 
 ### (S1)
 
-![Loop Blink Code](images/lab2s1.png)
+<img width="440" height="461" alt="image" src="https://github.com/user-attachments/assets/49cbccb6-6bef-4653-be49-cfd4e33bf0a9" />
+
 
 ### (S2)
 
