@@ -55,7 +55,8 @@ A prescaler divides the microcontroller clock before it reaches the timer, so th
 
 ### (I1)
 
-Pending: circuit photo (R1 = 1 kOhm, R2 = 10 kOhm).
+<img width="206" height="119" alt="image" src="https://github.com/user-attachments/assets/4656f6cd-7df7-4e15-beae-0f46d94d55ce" />
+
 
 ### (I2)
 
