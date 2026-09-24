@@ -77,6 +77,14 @@ The 10 nF capacitor is better for debouncing. With the same resistance, its RC t
 
 The dash upper limit was increased from 400 ms to 800 ms to make manual input easier.
 
-### (T1)
+## Part F
 
-Pending: TA demo with both team members. Announce and enter `BRAIN` (five different characters) twice, showing the board connected to the computer, button/LED wiring, button presses, LEDs, and terminal output.
+### (C3)
+
+[lab2c3.c](lab2c3.c)
+
+Message: `HELLO WORLD 12345` (12 unique characters).
+
+### (T2)
+
+Pending: TA demo.

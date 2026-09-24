@@ -2,6 +2,8 @@
 
 使用 **VS Code + PlatformIO + AVR-GCC**，目标板为 **ATmega328PB Xplained Mini**。代码使用寄存器级 C，未启用 Arduino 框架。当前 `src/main.c` 是 Part E 的可编译版本；提交文件保存在仓库根目录的 `lab2c2.c`。
 
+Part F 使用 `lab2c3.c`，PB1 接 LED 和限流电阻到 GND。运行 `pio run -e part_f` 编译，`pio run -e part_f -t upload` 烧录；默认环境仍是 Part E。
+
 ## 在 VS Code 中使用
 
 1. 用 **File → Open Folder** 打开本目录，确保资源管理器中能看到 `platformio.ini`。
