@@ -59,7 +59,8 @@ A prescaler divides the microcontroller clock before it reaches the timer, so th
 
 ### (I2)
 
-![1nF Cap Debounce O-scope](images/i2_1nF.HEIC)
+<img width="651" height="489" alt="image" src="https://github.com/user-attachments/assets/b6aa158e-057d-4821-a421-415aebdef0cd" />
+
 
 ### (I3)
 
